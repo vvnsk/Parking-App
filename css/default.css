@@ -1,0 +1,28 @@
+h1 img{
+    width: 64px;
+}
+#pagezero form{
+    overflow: auto;
+}
+#pagezero h2{
+    margin:15px;
+}
+.half{
+    overflow: auto;
+}
+.half .ui-input-text{
+    float: left;
+    width:40%;
+    margin-right:5%;
+}
+form .ui-btn{
+    width:40%;
+    margin-right:5%;
+    float:left;
+}
+.half.hide,.bookingStart{
+    display: none;
+}
+#pagethree form{
+    margin-top:20px;
+}

@@ -1,0 +1,196 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title></title>
+		<meta charset="utf-8" />
+  		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="css/css_reset.css" />
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/default.css" />
+	</head>
+
+	<body>
+		<div data-role="page" id="pagezero">
+			<div data-role="header">
+			<h1><img src="images/logo.png" / Parking</h1>
+		</div>
+		
+		<div class="ui-content" data-role="main">
+			<h2>Welcome to USF Automated Parking System</h2>
+			<p></p>
+			<form method="post" id="pagezeroForm">
+				<label for="chdate">Please select a date and time to start booking:</label>
+				<div class="half">
+					<input type="date" name="chdate" id="chdate">
+					<input type="time" name="chTime" id="chTime">
+				</div>
+				<a href="#pageone" class="ui-btn" data-transition="slide">Book</a>
+      			<!--<input type="submit" value="Submit Button">-->
+			</form>
+			<div class="bookingStart">
+				<h2>Availability:</h2>
+				<div id="piechart" style="width: 100%;"></div>
+				<a href="#pageone" class="ui-btn" data-transition="slide">Book</a>
+			</div>
+		</div>
+	</div>
+		<div data-role="page" id="pageone">
+		<div data-role="header">
+			<a class="ui-btn ui-corner-all ui-shadow ui-icon-back ui-btn-icon-left" data-direction="reverse" data-transition="slide" href="#pagezero">Back</a>
+			<h1><img src="images/logo.png"/></h1><a class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left" href="#pagezero">Home</a>
+		</div>
+		<div class="ui-content" data-role="main">
+			<div data-role="controlgroup" data-type="vertical">
+				<p>Please select Zone:</p>
+				<a class="ui-btn" data-transition="slide" href="#pagetwo">Zone A</a>
+				<a class="ui-btn" data-transition="slide" href="#pagetwo">Zone B</a>
+				<a class="ui-btn" data-transition="slide" href="#pagetwo">Zone C</a>
+				<a class="ui-btn" data-transition="slide" href="#pagetwo">Zone D</a>
+			</div>
+		</div>
+	</div>
+	<div data-role="page" id="pagetwo">
+		<div data-role="header">
+			<a class="ui-btn ui-corner-all ui-shadow ui-icon-back ui-btn-icon-left" data-direction="reverse" data-transition="slide" href="#pageone">Back</a>
+			<h1><img src="images/logo.png" /></h1><a class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left" href="#pagezero">Home</a>
+		</div>
+		<div class="ui-content" data-role="main">
+			<div data-role="controlgroup" data-type="vertical">
+				<h2>Please Select a Parking lot in <span class="selZone"></span></h2>
+				<ul data-inset="true" data-role="listview">
+					<li>
+						<a href="#pagethree" data-transition="slide">Parking Lot 1</a>
+					</li>
+					<li>
+						<a href="#pagethree" data-transition="slide">Parking Lot 2</a>
+					</li>
+					<li>
+						<a href="#pagethree" data-transition="slide">Parking Lot 3</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+	<div data-role="page" id="pagethree">
+		<div data-role="header">
+			<a class="ui-btn ui-corner-all ui-shadow ui-icon-back ui-btn-icon-left" data-direction="reverse" data-transition="slide" href="#pagetwo">Back</a>
+			<h1><img src="images/logo.png"/></h1><a class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left" href="#pagezero">Home</a>
+		</div>
+		<div class="ui-content" data-role="main">
+			<h2>Booking for <span class="selLot"></span> in <span class="selZone"></span></h2>
+			<form method="post" action="">
+				<div class="half hide">
+					<input type="text" name="zone" id="zone">
+					<input type="text" name="park" id="park">
+				</div>
+				<label for="name">Name:</label>
+				<input type="text" name="name" id="name">
+				<label for="email">Email:</label>
+				<input type="text" name="email" id="email">
+				<label for="phone">Phone No:</label>
+				<input type="text" name="phone" id="phone">
+				<label for="lic">Car License:</label>
+				<input type="text" name="lic" id="lic">
+				<label for="inDate">Entry:</label>
+				<div class="half">
+					<input type="date" name="inDate" id="inDate">
+					<input type="time" name="inTime" id="inTime">
+				</div>
+				<label for="outDate">Exit:</label>
+				<div class="half">
+					<input type="date" name="outDate" id="outDate">
+					<input type="time" name="outTime" id="outTime">
+				</div>
+				<input type="reset" value="Reset Button">
+      			<input type="submit" value="Submit Button">
+			</form>
+		</div>
+	</div>
+	<div data-role="page" id="final">
+		<div data-role="header">
+			<a class="ui-btn ui-corner-all ui-shadow ui-icon-back ui-btn-icon-left" data-direction="reverse" data-transition="slide" href="#pagethree">Back</a>
+			<h1><img src="images/logo.png"/></h1><a class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left" href="#pagezero">Home</a>
+		</div>
+		<div class="ui-content" data-role="main">
+			<h2>Booking Review:</h2>
+			<table data-role="table" class="ui-responsive">
+				<thead>
+					<tr><th></th><th></th>
+						</tr>
+					</thead>
+				<tbody>
+					<tr>
+						<td>Zone: </td>
+						<td class="selZone"></td>
+					</tr>
+					<tr>
+						<td>Parking Lot:</td>
+						<td class="selLot"></td>
+					</tr>
+					<tr>
+						<td>Name:</td>
+						<td class="selName"></td>
+					</tr>
+					<tr>
+						<td>Email:</td>
+						<td class="selEmail"></td>
+					</tr>
+					<tr>
+						<td>Phone:</td>
+						<td class="selPhone"></td>
+					</tr>
+					<tr>
+						<td>License No:</td>
+						<td class="selLic"></td>
+					</tr>
+					<tr>
+						<td>Entry</td>
+						<td class="selEntry"></td>
+					</tr>
+					<tr>
+						<td>Exit:</td>
+						<td class="selExit"></td>
+					</tr>
+				</tbody>
+			</table>
+			<a href="#confirm" class="ui-btn" data-transition="slide">Book</a>
+		</div>
+	</div>
+	<div data-role="page" id="confirm">
+		<div data-role="header">
+			<h1><img src="images/logo.png"/></h1><a class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left" href="#pagezero">Home</a>
+		</div>
+		<div class="ui-content" data-role="main">
+			<h2>Booking Successful!</h2>
+			<a href="#pagezero">Start new Booking</a>
+		</div>
+	</div>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Avaiable', 'Slots'],
+          ['Available',  5.85],
+          ['Full',  1.66],
+          ['Pending', 0.316],
+        ]);
+
+      var options = {
+        legend: 'none',
+        pieStartAngle: 100,
+      };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        chart.draw(data, options);
+      }
+    </script>
+		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+		<script src="lib/default.js"></script>
+	</body>
+
+</html>
